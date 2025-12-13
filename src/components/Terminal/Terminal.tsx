@@ -26,7 +26,7 @@ Type a command and press Enter to execute.`;
 
 const welcomeText = `Hello My name is Anubhav Vashishtha and liWelcome to my portfolio! 👋
 
-I'm a AI Enthusiast that build smart machines.
+I'm an AI Enthusiast that build smart machines.
 Type 'help' to see available commands.`;
 
 export const Terminal = () => {
@@ -53,7 +53,7 @@ export const Terminal = () => {
 const handleDownloadCV = () => {
   const link = document.createElement("a");
   link.href = "/cv.pdf";
-  link.download = "cv.pdf";
+  link.download = "Anubhav_Vashishtha_CV.pdf";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
