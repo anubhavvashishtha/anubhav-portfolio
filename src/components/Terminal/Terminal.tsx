@@ -24,9 +24,9 @@ const helpText = `Available commands:
 
 Type a command and press Enter to execute.`;
 
-const welcomeText = `Welcome to my portfolio! 👋
+const welcomeText = `Hello My name is Anubhav Vashishtha and liWelcome to my portfolio! 👋
 
-I'm a developer who builds cool stuff.
+I'm a AI Enthusiast that build smart machines.
 Type 'help' to see available commands.`;
 
 export const Terminal = () => {
@@ -50,14 +50,14 @@ export const Terminal = () => {
     }
   }, [history]);
 
-  const handleDownloadCV = () => {
-    // Create a dummy download - replace with actual CV file
-    const link = document.createElement("a");
-    link.href = "#";
-    link.download = "cv.pdf";
-    // In production, link.href would be the actual CV file URL
-    alert("CV download would start here. Add your CV file to enable this feature.");
-  };
+const handleDownloadCV = () => {
+  const link = document.createElement("a");
+  link.href = "/cv.pdf";
+  link.download = "cv.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
   const processCommand = (cmd: string) => {
     const command = cmd.toLowerCase().trim();
@@ -126,7 +126,7 @@ export const Terminal = () => {
               <div className="w-3 h-3 rounded-full bg-terminal-warning" />
               <div className="w-3 h-3 rounded-full bg-terminal-success" />
             </div>
-            <span className="text-sm text-muted-foreground flex-1 text-center">portfolio@terminal</span>
+            <span className="text-sm text-muted-foreground flex-1 text-center">portfolio@Anubhav</span>
           </div>
 
           {/* Terminal Body */}
