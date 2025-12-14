@@ -4,45 +4,72 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { ExternalLink, Github } from "lucide-react";
+import { Github } from "lucide-react";
 
 interface Project {
   id: number;
   title: string;
   description: string;
   techStack: string[];
-  liveUrl?: string;
   githubUrl?: string;
-  image: string;
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "A full-featured online store with cart functionality, payment integration, and admin dashboard.",
-    techStack: ["React", "Node.js", "PostgreSQL", "Stripe"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    image: "🛒",
+    title: "Smart Council",
+    description: "Architected a multi-agent orchestration framework with automated task decomposition, dependency-graph traversal, and parallel execution optimization using Llama-3.1-8B-Instruct and ThreadPoolExecutor.",
+    techStack: ["Llama 3.1", "SQLite", "ThreadPoolExecutor", "HuggingFace API", "Multi-Agent Systems"],
+    githubUrl: "https://github.com/anubhavvashishtha/SmartCouncil",
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "A collaborative task manager with real-time updates, team features, and progress tracking.",
-    techStack: ["Next.js", "TypeScript", "Prisma", "Socket.io"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    image: "✅",
+    title: "Decoder Only Transformer Architecture",
+    description: "Engineered a production-grade decoder-only transformer from scratch with KV-cache optimization, beam search inference, and memory-efficient training via gradient checkpointing and accumulation.",
+    techStack: ["PyTorch", "Transformer Architecture", "KV Cache", "Gradient Checkpointing", "Beam Search"],
+    githubUrl: "https://github.com/anubhavvashishtha/Decoder-Only-Transformer-LLM-From-scratch",
   },
   {
     id: 3,
-    title: "Weather Dashboard",
-    description: "A beautiful weather app with real-time forecasts, location search, and interactive maps.",
-    techStack: ["React", "OpenWeather API", "Mapbox", "TailwindCSS"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    image: "🌤️",
+    title: "Mixture of Experts for Edge Devices",
+    description: "Deployed a fully offline multi-agent mental health chatbot with five LoRA-fine-tuned Gemma-3-1B models, orchestrated via TF-IDF vectorization and quantized to ~150MB per model using TensorFlow Lite and 4-bit quantization.",
+    techStack: ["Gemma", "LoRA/PEFT", "TensorFlow Lite", "4-bit Quantization", "MediaPipe", "TF-IDF", "Logistic Regression"],
+    githubUrl: "https://github.com/anubhavvashishtha/MOE2",
+  },
+  {
+    id: 4,
+    title: "RL Stock Market Bot",
+    description: "Developed a deep reinforcement learning trading agent with custom environment simulation, neural network-based policy optimization, and automated model checkpointing for adaptive buy/sell decision-making.",
+    techStack: ["Reinforcement Learning", "Deep Q-Network", "PyTorch", "NumPy", "Pandas", "Policy Optimization"],
+    githubUrl: "https://github.com/Anubhav-Vashishtha/RL-Stock-Market-Bot",
+  },
+  {
+    id: 5,
+    title: "LLM-Based Hotel Search",
+    description: "Built a natural language hotel search engine leveraging vector embeddings and cosine similarity for semantic retrieval, eliminating traditional filters with a scalable Node.js/Flask backend and MongoDB vector storage.",
+    techStack: ["Vector Embeddings", "Cosine Similarity", "MongoDB", "Node.js", "Express", "Flask", "LLM", "Semantic Search"],
+    githubUrl: "https://github.com/Anubhav-Vashishtha/AI-Search-Engine-For-Hotels",
+  },
+  {
+    id: 6,
+    title: "Visual Taxonomy Attribute Prediction",
+    description: "Designed a multi-output ResNet50-based deep learning model with advanced data augmentation, handling large-scale visual taxonomy classification across multiple attributes using categorical cross-entropy and tf.data pipelines.",
+    techStack: ["TensorFlow", "ResNet50", "Data Augmentation", "Multi-Output Classification", "Batch Normalization", "Dropout"],
+    githubUrl: "https://github.com/Anubhav-Vashishtha/Meesho_Hackathon",
+  },
+  {
+    id: 7,
+    title: "T20 Match Winner Prediction",
+    description: "Achieved top-20 nationally among 4200 teams by engineering advanced feature extraction pipelines and deploying XGBoost with comprehensive EDA, missing data imputation, and ground-level statistical modeling.",
+    techStack: ["XGBoost", "Feature Engineering", "EDA", "Pandas", "NumPy", "scikit-learn", "Data Imputation"],
+    githubUrl: "https://github.com/Anubhav-Vashishtha/AmericalExpress-Comp",
+  },
+  {
+    id: 8,
+    title: "Hand Gesture Cursor Control",
+    description: "Implemented real-time gesture recognition system using custom-trained YOLO keypoint detection for fingertip tracking, enabling hands-free cursor control and pinch-to-click functionality via OpenCV and PyAutoGUI integration.",
+    techStack: ["YOLO", "OpenCV", "PyAutoGUI", "Keypoint Detection", "Computer Vision", "Real-time Processing"],
+    githubUrl: "https://github.com/Anubhav-Vashishtha/Hand-Gesture-Cursor-Control",
   },
 ];
 
@@ -54,7 +81,7 @@ interface ProjectsModalProps {
 export const ProjectsModal = ({ open, onOpenChange }: ProjectsModalProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl bg-card border-border">
+      <DialogContent className="max-w-6xl bg-card border-border max-h-[85vh]">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-primary">
             My Projects
@@ -66,18 +93,15 @@ export const ProjectsModal = ({ open, onOpenChange }: ProjectsModalProps) => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="group w-72 shrink-0 bg-secondary rounded-lg border border-border overflow-hidden hover:border-primary/50 transition-all duration-300"
+                className="group w-96 shrink-0 bg-secondary rounded-lg border border-border overflow-hidden hover:border-primary/50 transition-all duration-300"
               >
-                <div className="h-32 bg-muted flex items-center justify-center text-5xl">
-                  {project.image}
-                </div>
                 
-                <div className="p-4 space-y-3">
+                <div className="p-5 space-y-3 relative flex flex-col h-full">
                   <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
                   
-                  <p className="text-sm text-muted-foreground line-clamp-2">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {project.description}
                   </p>
                   
@@ -92,24 +116,13 @@ export const ProjectsModal = ({ open, onOpenChange }: ProjectsModalProps) => {
                     ))}
                   </div>
                   
-                  <div className="flex gap-3 pt-2">
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        Live Demo
-                      </a>
-                    )}
+                  <div className="pt-2 mt-auto">
                     {project.githubUrl && (
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+                        className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors w-fit"
                       >
                         <Github className="w-4 h-4" />
                         Code

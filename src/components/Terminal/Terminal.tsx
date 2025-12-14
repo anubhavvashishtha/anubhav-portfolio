@@ -24,7 +24,7 @@ const helpText = `Available commands:
 
 Type a command and press Enter to execute.`;
 
-const welcomeText = `Hello My name is Anubhav Vashishtha and liWelcome to my portfolio! 👋
+const welcomeText = `Hello My name is Anubhav Vashishtha and Welcome to my portfolio! 👋
 
 I'm an AI Enthusiast that build smart machines.
 Type 'help' to see available commands.`;

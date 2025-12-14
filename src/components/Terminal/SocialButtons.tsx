@@ -4,9 +4,9 @@ const socials = [
   {
     name: "Email",
     icon: Mail,
-    url: "mailto:anubhavvashishtha@gmail.com",
+    url: "https://mail.google.com/mail/?view=cm&fs=1&to=anubhavvashishtha.iitd@gmail.com",
     color: "hover:text-terminal-warning",
-    isExternal: false,
+    isExternal: true,
   },
   {
     name: "Twitter",
