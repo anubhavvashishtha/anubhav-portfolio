@@ -18,7 +18,7 @@ const helpText = `Available commands:
   about     - Learn more about me
   projects  - View my projects
   contact   - Get my social links
-  cv        - View my resume
+  cv        - View my CV
   help      - Show commands
   clear     - Clear the terminal
 

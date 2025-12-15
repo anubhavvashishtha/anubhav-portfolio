@@ -13,13 +13,16 @@ interface AboutModalProps {
 export const AboutModal = ({ open, onOpenChange }: AboutModalProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      {/* Changes for responsiveness:
-        1. w-[95vw]: Takes up 95% of screen width on mobile
-        2. sm:max-w-3xl: Caps width on tablet/desktop
-        3. max-h-[85vh] & overflow-y-auto: Ensures scrolling if content is taller than phone screen
-        4. p-4 sm:p-6: Tighter padding on mobile
-      */}
-      <DialogContent className="w-[95vw] sm:max-w-3xl max-h-[85vh] overflow-y-auto bg-card border-border p-4 sm:p-6">
+      <DialogContent 
+        className="
+          w-[95vw] sm:max-w-3xl max-h-[85vh] overflow-y-auto bg-card border-border p-4 sm:p-6
+          [&::-webkit-scrollbar]:w-2
+          [&::-webkit-scrollbar-track]:bg-transparent
+          [&::-webkit-scrollbar-thumb]:bg-muted-foreground/20
+          [&::-webkit-scrollbar-thumb]:rounded-full
+          hover:[&::-webkit-scrollbar-thumb]:bg-primary/50
+        "
+      >
         <DialogHeader>
           <DialogTitle className="text-xl sm:text-2xl font-bold text-primary">
             About Me
@@ -27,13 +30,8 @@ export const AboutModal = ({ open, onOpenChange }: AboutModalProps) => {
         </DialogHeader>
 
         <div className="space-y-6 sm:space-y-8 py-2 sm:py-4">
-          {/* Header Section: Stacks vertically on mobile, row on desktop */}
+          {/* Header Section */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">
-            {/* Avatar placeholder (Uncomment if needed, styled for mobile) */}
-            {/* <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-xl bg-secondary flex items-center justify-center text-2xl sm:text-4xl shrink-0">
-              🤖
-            </div> */}
-
             <div className="space-y-3 sm:space-y-4">
               <div>
                 <h3 className="text-lg sm:text-xl font-semibold text-foreground">
