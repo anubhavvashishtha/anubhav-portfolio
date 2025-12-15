@@ -18,7 +18,7 @@ const helpText = `Available commands:
   about     - Learn more about me
   projects  - View my projects
   contact   - Get my social links
-  cv        - Download my resume
+  cv        - View my resume
   help      - Show commands
   clear     - Clear the terminal
 
@@ -45,8 +45,7 @@ export const Terminal = () => {
     inputRef.current?.focus();
   }, []);
 
-  // UPDATED: Replaced simple history useEffect with MutationObserver
-  // This watches for DOM changes (typing) and scrolls to bottom automatically
+  // Watch for DOM changes (typing) and scroll to bottom automatically
   useEffect(() => {
     const scrollElement = terminalRef.current;
     if (!scrollElement) return;
@@ -55,28 +54,24 @@ export const Terminal = () => {
       scrollElement.scrollTop = scrollElement.scrollHeight;
     };
 
-    // Observer to watch for any content changes (text nodes, new elements)
     const observer = new MutationObserver(scrollToBottom);
 
     observer.observe(scrollElement, {
-      childList: true, // Watch for new lines
-      subtree: true,   // Watch deep inside lines (for typewriter text)
-      characterData: true // Watch for text content updates
+      childList: true,
+      subtree: true,
+      characterData: true,
     });
 
-    // Initial scroll
     scrollToBottom();
 
     return () => observer.disconnect();
-  }, []); // Empty dependency array as the observer handles updates
+  }, []);
 
-  const handleDownloadCV = () => {
-    const link = document.createElement("a");
-    link.href = "/cv.pdf";
-    link.download = "Anubhav_Vashishtha_CV.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  // UPDATED: Opens Drive link in new tab instead of downloading
+  const handleOpenCV = () => {
+    // 👇👇👇 PASTE YOUR GOOGLE DRIVE LINK HERE 👇👇👇
+    const cvUrl = "https://docs.google.com/document/d/1QOF1hiHrN6mkp-5cHEKIZBy_NKG40lmJgZRYd51SA2Q/edit?usp=sharing";
+    window.open(cvUrl, "_blank", "noopener,noreferrer");
   };
 
   const processCommand = (cmd: string) => {
@@ -101,8 +96,9 @@ export const Terminal = () => {
         typing = false;
         break;
       case "cv":
-        output = "Downloading CV...";
-        setTimeout(handleDownloadCV, 300);
+        // UPDATED: Changed output message and function call
+        output = "Opening CV in a new tab...";
+        setTimeout(handleOpenCV, 300);
         break;
       case "clear":
         setHistory([]);
@@ -146,7 +142,9 @@ export const Terminal = () => {
               <div className="w-3 h-3 rounded-full bg-terminal-warning" />
               <div className="w-3 h-3 rounded-full bg-terminal-success" />
             </div>
-            <span className="text-sm text-muted-foreground flex-1 text-center">portfolio@Anubhav</span>
+            <span className="text-sm text-muted-foreground flex-1 text-center">
+              portfolio@Anubhav
+            </span>
           </div>
 
           {/* Terminal Body */}
@@ -162,7 +160,10 @@ export const Terminal = () => {
               <div key={item.id} className="space-y-2">
                 {item.command && <TerminalLine command={item.command} />}
                 <div className="text-sm text-foreground whitespace-pre-wrap pl-0 sm:pl-4">
-                  <TerminalOutput content={item.output} typing={item.typing} />
+                  <TerminalOutput
+                    content={item.output}
+                    typing={item.typing}
+                  />
                 </div>
               </div>
             ))}
@@ -189,7 +190,8 @@ export const Terminal = () => {
         </div>
 
         <p className="text-center text-muted-foreground text-xs mt-4">
-          Type <span className="text-terminal-command">help</span> to get started
+          Type <span className="text-terminal-command">help</span> to get
+          started
         </p>
       </div>
 
