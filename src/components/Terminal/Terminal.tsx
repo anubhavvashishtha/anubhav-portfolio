@@ -45,11 +45,30 @@ export const Terminal = () => {
     inputRef.current?.focus();
   }, []);
 
+  // UPDATED: Replaced simple history useEffect with MutationObserver
+  // This watches for DOM changes (typing) and scrolls to bottom automatically
   useEffect(() => {
-    if (terminalRef.current) {
-      terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
-    }
-  }, [history]);
+    const scrollElement = terminalRef.current;
+    if (!scrollElement) return;
+
+    const scrollToBottom = () => {
+      scrollElement.scrollTop = scrollElement.scrollHeight;
+    };
+
+    // Observer to watch for any content changes (text nodes, new elements)
+    const observer = new MutationObserver(scrollToBottom);
+
+    observer.observe(scrollElement, {
+      childList: true, // Watch for new lines
+      subtree: true,   // Watch deep inside lines (for typewriter text)
+      characterData: true // Watch for text content updates
+    });
+
+    // Initial scroll
+    scrollToBottom();
+
+    return () => observer.disconnect();
+  }, []); // Empty dependency array as the observer handles updates
 
   const handleDownloadCV = () => {
     const link = document.createElement("a");
@@ -134,7 +153,6 @@ export const Terminal = () => {
           <div
             ref={terminalRef}
             onClick={focusInput}
-            // CHANGED: Removed styling classes, added hiding classes
             className="p-4 h-[400px] overflow-y-auto cursor-text space-y-4
               [&::-webkit-scrollbar]:hidden 
               [-ms-overflow-style:'none'] 
