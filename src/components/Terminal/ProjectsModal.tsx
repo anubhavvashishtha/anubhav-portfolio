@@ -88,8 +88,16 @@ export const ProjectsModal = ({ open, onOpenChange }: ProjectsModalProps) => {
           </DialogTitle>
         </DialogHeader>
         
-        <div className="overflow-x-auto py-4 -mx-2 px-2">
-          <div className="flex gap-6 min-w-max">
+        {/* ADDED SCROLLBAR STYLING CLASSES HERE */}
+        <div className="overflow-x-auto py-4 -mx-2 px-2 
+          [&::-webkit-scrollbar]:h-2
+          [&::-webkit-scrollbar-track]:bg-transparent
+          [&::-webkit-scrollbar-thumb]:bg-muted-foreground/20
+          [&::-webkit-scrollbar-thumb]:rounded-full
+          hover:[&::-webkit-scrollbar-thumb]:bg-primary/50
+          transition-colors"
+        >
+          <div className="flex gap-6 min-w-max pb-2"> {/* Added pb-2 for spacing */}
             {projects.map((project) => (
               <div
                 key={project.id}

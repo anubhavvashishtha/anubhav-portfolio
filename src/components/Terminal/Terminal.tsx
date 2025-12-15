@@ -51,14 +51,14 @@ export const Terminal = () => {
     }
   }, [history]);
 
-const handleDownloadCV = () => {
-  const link = document.createElement("a");
-  link.href = "/cv.pdf";
-  link.download = "Anubhav_Vashishtha_CV.pdf";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/cv.pdf";
+    link.download = "Anubhav_Vashishtha_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const processCommand = (cmd: string) => {
     const command = cmd.toLowerCase().trim();
@@ -134,7 +134,14 @@ const handleDownloadCV = () => {
           <div
             ref={terminalRef}
             onClick={focusInput}
-            className="p-4 h-[400px] overflow-y-auto cursor-text space-y-4"
+            // ADDED SCROLLBAR CLASSES HERE
+            className="p-4 h-[400px] overflow-y-auto cursor-text space-y-4
+              [&::-webkit-scrollbar]:w-2
+              [&::-webkit-scrollbar-track]:bg-transparent
+              [&::-webkit-scrollbar-thumb]:bg-muted-foreground/20
+              [&::-webkit-scrollbar-thumb]:rounded-full
+              hover:[&::-webkit-scrollbar-thumb]:bg-primary/50
+              transition-colors"
           >
             {history.map((item) => (
               <div key={item.id} className="space-y-2">
