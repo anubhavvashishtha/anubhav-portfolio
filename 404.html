@@ -4,11 +4,17 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-      sessionStorage.redirect = location.pathname;
+      // Store the path and redirect to index.html with the path as a query parameter
+      const path = window.location.pathname.slice(1);
+      const base = '/anubhav-portfolio/';
+      if (path && path !== base) {
+        const redirect = window.location.origin + base + '?redirect=' + 
+          encodeURIComponent(path.replace(base, ''));
+        window.location.replace(redirect);
+      }
     </script>
-    <meta http-equiv="refresh" content="0;URL='/'" />
   </head>
   <body>
-    Redirecting to the home page...
+    Redirecting...
   </body>
 </html>
