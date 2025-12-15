@@ -81,15 +81,15 @@ interface ProjectsModalProps {
 export const ProjectsModal = ({ open, onOpenChange }: ProjectsModalProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-6xl bg-card border-border max-h-[85vh]">
+      <DialogContent className="w-[95vw] max-w-6xl bg-card border-border max-h-[85vh] flex flex-col">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-primary">
             My Projects
           </DialogTitle>
         </DialogHeader>
         
-        {/* ADDED SCROLLBAR STYLING CLASSES HERE */}
-        <div className="overflow-x-auto py-4 -mx-2 px-2 
+        {/* Added snap-x and snap-mandatory for smooth mobile scrolling */}
+        <div className="overflow-x-auto py-4 -mx-2 px-2 snap-x snap-mandatory
           [&::-webkit-scrollbar]:h-2
           [&::-webkit-scrollbar-track]:bg-transparent
           [&::-webkit-scrollbar-thumb]:bg-muted-foreground/20
@@ -97,11 +97,12 @@ export const ProjectsModal = ({ open, onOpenChange }: ProjectsModalProps) => {
           hover:[&::-webkit-scrollbar-thumb]:bg-primary/50
           transition-colors"
         >
-          <div className="flex gap-6 min-w-max pb-2"> {/* Added pb-2 for spacing */}
+          <div className="flex gap-4 md:gap-6 w-max pb-2">
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="group w-96 shrink-0 bg-secondary rounded-lg border border-border overflow-hidden hover:border-primary/50 transition-all duration-300"
+                // CHANGED: w-[85vw] for mobile, w-96 for desktop. Added snap-center.
+                className="group w-[85vw] md:w-96 shrink-0 snap-center bg-secondary rounded-lg border border-border overflow-hidden hover:border-primary/50 transition-all duration-300"
               >
                 
                 <div className="p-5 space-y-3 relative flex flex-col h-full">

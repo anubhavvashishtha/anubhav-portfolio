@@ -134,14 +134,11 @@ export const Terminal = () => {
           <div
             ref={terminalRef}
             onClick={focusInput}
-            // ADDED SCROLLBAR CLASSES HERE
+            // CHANGED: Removed styling classes, added hiding classes
             className="p-4 h-[400px] overflow-y-auto cursor-text space-y-4
-              [&::-webkit-scrollbar]:w-2
-              [&::-webkit-scrollbar-track]:bg-transparent
-              [&::-webkit-scrollbar-thumb]:bg-muted-foreground/20
-              [&::-webkit-scrollbar-thumb]:rounded-full
-              hover:[&::-webkit-scrollbar-thumb]:bg-primary/50
-              transition-colors"
+              [&::-webkit-scrollbar]:hidden 
+              [-ms-overflow-style:'none'] 
+              [scrollbar-width:'none']"
           >
             {history.map((item) => (
               <div key={item.id} className="space-y-2">
