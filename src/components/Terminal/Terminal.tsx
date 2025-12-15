@@ -16,10 +16,10 @@ interface HistoryItem {
 const helpText = `Available commands:
 
   about     - Learn more about me
-  projects  - View my portfolio projects
+  projects  - View my projects
   contact   - Get my social links
   cv        - Download my resume
-  help      - Show this help message
+  help      - Show commands
   clear     - Clear the terminal
 
 Type a command and press Enter to execute.`;
