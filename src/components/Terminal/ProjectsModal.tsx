@@ -17,62 +17,68 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    title: "TalkToExL",
+    description: "Built a browser-based AI spreadsheet engine that lets enterprise users manipulate Excel data using plain English and @column references. Features a multi-column expression evaluator powered by new Function(), an operation pipeline with full preview before commit, show-scoping that narrows subsequent operations to filtered rows, and a complete undo history — all running 100% client-side with no data leaving the browser.",
+    techStack: ["React", "TypeScript", "AI/LLM", "HuggingFace", "xlsx", "Tailwind CSS"],
+    githubUrl: "", // add demo link here
+  },
+  {
+    id: 2,
     title: "Smart Council",
     description: "Architected a multi-agent orchestration framework with automated task decomposition, dependency-graph traversal, and parallel execution optimization using Llama-3.1-8B-Instruct and ThreadPoolExecutor.",
     techStack: ["Llama 3.1", "SQLite", "ThreadPoolExecutor", "HuggingFace API", "Multi-Agent Systems"],
     githubUrl: "https://github.com/anubhavvashishtha/SmartCouncil",
   },
   {
-    id: 2,
+    id: 3,
     title: "Decoder Only Transformer Architecture",
     description: "Engineered a production-grade decoder-only transformer from scratch with KV-cache optimization, beam search inference, and memory-efficient training via gradient checkpointing and accumulation.",
     techStack: ["PyTorch", "Transformer Architecture", "KV Cache", "Gradient Checkpointing", "Beam Search"],
     githubUrl: "https://github.com/anubhavvashishtha/Decoder-Only-Transformer-LLM-From-scratch",
   },
   {
-    id: 3,
+    id: 4,
     title: "Mixture of Experts for Edge Devices",
     description: "Deployed a fully offline multi-agent mental health chatbot with five LoRA-fine-tuned Gemma-3-1B models, orchestrated via TF-IDF vectorization and quantized to ~150MB per model using TensorFlow Lite and 4-bit quantization.",
     techStack: ["Gemma", "LoRA/PEFT", "TensorFlow Lite", "4-bit Quantization", "MediaPipe", "TF-IDF", "Logistic Regression"],
     githubUrl: "https://github.com/anubhavvashishtha/MOE2",
   },
   {
-    id: 4,
+    id: 5,
     title: "RL Stock Market Bot",
     description: "Developed a deep reinforcement learning trading agent with custom environment simulation, neural network-based policy optimization, and automated model checkpointing for adaptive buy/sell decision-making.",
     techStack: ["Reinforcement Learning", "Deep Q-Network", "PyTorch", "NumPy", "Pandas", "Policy Optimization"],
     githubUrl: "https://github.com/Anubhav-Vashishtha/RL-Stock-Market-Bot",
   },
   {
-    id: 5,
+    id: 6,
     title: "LLM-Based Hotel Search",
     description: "Built a natural language hotel search engine leveraging vector embeddings and cosine similarity for semantic retrieval, eliminating traditional filters with a scalable Node.js/Flask backend and MongoDB vector storage.",
     techStack: ["Vector Embeddings", "Cosine Similarity", "MongoDB", "Node.js", "Express", "Flask", "LLM", "Semantic Search"],
     githubUrl: "https://github.com/Anubhav-Vashishtha/AI-Search-Engine-For-Hotels",
   },
   {
-    id: 6,
+    id: 7,
     title: "Visual Taxonomy Attribute Prediction",
     description: "Designed a multi-output ResNet50-based deep learning model with advanced data augmentation, handling large-scale visual taxonomy classification across multiple attributes using categorical cross-entropy and tf.data pipelines.",
     techStack: ["TensorFlow", "ResNet50", "Data Augmentation", "Multi-Output Classification", "Batch Normalization", "Dropout"],
     githubUrl: "https://github.com/Anubhav-Vashishtha/Meesho_Hackathon",
   },
   {
-    id: 7,
+    id: 8,
     title: "T20 Match Winner Prediction",
     description: "Achieved top-20 nationally among 4200 teams by engineering advanced feature extraction pipelines and deploying XGBoost with comprehensive EDA, missing data imputation, and ground-level statistical modeling.",
     techStack: ["XGBoost", "Feature Engineering", "EDA", "Pandas", "NumPy", "scikit-learn", "Data Imputation"],
     githubUrl: "https://github.com/Anubhav-Vashishtha/AmericalExpress-Comp",
   },
   {
-    id: 8,
+    id: 9,
     title: "Hand Gesture Cursor Control",
     description: "Implemented real-time gesture recognition system using custom-trained YOLO keypoint detection for fingertip tracking, enabling hands-free cursor control and pinch-to-click functionality via OpenCV and PyAutoGUI integration.",
     techStack: ["YOLO", "OpenCV", "PyAutoGUI", "Keypoint Detection", "Computer Vision", "Real-time Processing"],
     githubUrl: "https://github.com/Anubhav-Vashishtha/Hand-Gesture-Cursor-Control",
   },
 ];
-
 interface ProjectsModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
