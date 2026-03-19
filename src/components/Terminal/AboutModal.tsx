@@ -133,6 +133,13 @@ export const AboutModal = ({ open, onOpenChange }: AboutModalProps) => {
                 — Built AI-powered student analytics adopted at the government
                 level.
               </p>
+              <p>
+                •{" "}
+                <span className="text-foreground font-medium">
+                  Applied AI Engineer @ Craav (Remote)
+                </span>{" "}
+                — Engineered an ingredient detection VLM system on 6-sec clips achieving 0.86s latency via optimized frame sampling
+              </p>
             </div>
           </div>
         </div>
