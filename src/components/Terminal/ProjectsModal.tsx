@@ -38,18 +38,21 @@ const projects: Project[] = [
     title: "Biohub Cell Detection",
     description: "Volumetric cell images have to be located in 3D and linked across time, including when a cell divides. I built a detection and tracking pipeline that trains on Zarr volumes with GEFF graph labels and exports a node-and-edge tracking graph. A residual 3D U-Net predicts a cell-indicator heatmap and per-voxel movement vectors; 3D non-maximum suppression picks the peaks, and a division-aware Hungarian linker connects cells from one frame to the next.",
     techStack: ["Kaggle"],
+    githubUrl: "https://github.com/anubhavvashishtha/Biohub-cell-detection",
   },
   {
     id: 3,
     title: "Orbit Wars",
     description: "Orbit Wars is a real-time strategy game where agents capture planets orbiting a sun by launching fleets. As team lead, we built an agent that reads the board as a spatial image and, in one pass, decides which planets should send ships where. A convolutional U-Net encodes planets, fleets, and the sun; a matrix head predicts dispatch fractions from imitation on recorded games; and a physics model turns those intents into launch angles that avoid the sun.",
     techStack: ["Kaggle"],
+    githubUrl: "https://github.com/anubhavvashishtha/OrbitsWar",
   },
   {
     id: 4,
     title: "OpenAI Tool Hack",
     description: "Tool-using agents can be pushed from untrusted inputs into unsafe actions across several steps, which single-prompt checks miss. For the OpenAI, Google, and IEEE Kaggle competition on multi-step tool attacks, I built a search program that talks to a sandboxed agent and returns replayable prompt chains. It identifies the target model, probes a bank of multi-turn templates, and keeps sampling the templates that succeed most consistently.",
     techStack: ["Kaggle"],
+    githubUrl: "https://github.com/anubhavvashishtha/OpenAI-tool-hack",
   },
   {
     id: 5,
