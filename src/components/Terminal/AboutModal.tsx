@@ -43,9 +43,10 @@ export const AboutModal = ({ open, onOpenChange }: AboutModalProps) => {
               </div>
 
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                I’m a 4th-year Undergraduate at{" "}
+                I’m an{" "}
                 <span className="text-foreground font-medium">IIT Delhi</span>{" "}
-                who loves building real-world AI systems end-to-end — from model
+                graduate, GenAI Engineer at Data Design in Finland who loves
+                building real-world AI systems end-to-end — from model
                 training and architecture optimization to scalable backend APIs.
                 My work spans{" "}
                 <span className="text-foreground font-medium">
@@ -136,7 +137,7 @@ export const AboutModal = ({ open, onOpenChange }: AboutModalProps) => {
               <p>
                 •{" "}
                 <span className="text-foreground font-medium">
-                  Applied AI Engineer @ Craav (Remote)
+                  Applied AI Engineer @ Cravv (Remote)
                 </span>{" "}
                 — Engineered an ingredient detection VLM system on 6-sec clips achieving 0.86s latency via optimized frame sampling
               </p>
